@@ -1,0 +1,26 @@
+name: unit test
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  unit_test_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set environment automatically
+        run: npm ci
+
+      - name: Build Test
+        run: npm run build
+
+      - name: Unit Test
+        run: |
+          chmod +x ./node_modules/.bin/vue-cli-service
+          ./node_modules/.bin/vue-cli-service test:unit -u
+
+      - name: Lint
+        run: npm run lint
