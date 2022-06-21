@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import ImpressionView from '@/views/ImpressionView.vue'
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: HomeView
-  // },
+  {
+    path: '/',
+    name: 'ImpressionView',
+    component: ImpressionView
+  },
 ]
 
 const router = createRouter({
